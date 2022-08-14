@@ -1,0 +1,173 @@
+---- Minecraft Crash Report ----
+// Who set us up the TNT?
+
+Time: 2022/8/11 下午12:57
+Description: Ticking entity
+
+java.lang.UnsupportedOperationException: Attempted to call Event#setCanceled() on a non-cancelable event of type: net.minecraftforge.event.entity.living.LivingSetAttackTargetEvent
+	at net.minecraftforge.eventbus.api.Event.setCanceled(Event.java:95) ~[eventbus-5.0.7.jar%239!/:?] {}
+	at net.yeyixiao.block.procedures.wudi.onDeath(wudi.java:83) ~[%2380!/:?] {re:classloading}
+	at net.minecraftforge.eventbus.ASMEventHandler_6_wudi_onDeath_LivingSetAttackTargetEvent.invoke(.dynamic) ~[?:?] {}
+	at net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:85) ~[eventbus-5.0.7.jar%239!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:302) ~[eventbus-5.0.7.jar%239!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:283) ~[eventbus-5.0.7.jar%239!/:?] {}
+	at net.minecraftforge.common.ForgeHooks.onLivingSetAttackTarget(ForgeHooks.java:288) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2375%2381!/:?] {re:classloading}
+	at net.minecraft.world.entity.Mob.setTarget(Mob.java:209) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.entity.ai.goal.target.TargetGoal.canContinueToUse(TargetGoal.java:73) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading}
+	at net.minecraft.world.entity.ai.goal.WrappedGoal.canContinueToUse(WrappedGoal.java:27) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading}
+	at net.minecraft.world.entity.ai.goal.GoalSelector.tick(GoalSelector.java:84) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading}
+	at net.minecraft.world.entity.Mob.serverAiStep(Mob.java:695) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.entity.LivingEntity.aiStep(LivingEntity.java:2506) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.entity.Mob.aiStep(Mob.java:495) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.entity.LivingEntity.tick(LivingEntity.java:2253) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.entity.Mob.tick(Mob.java:307) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.entity.monster.Slime.tick(Slime.java:122) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading}
+	at net.minecraft.server.level.ServerLevel.tickNonPassenger(ServerLevel.java:652) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.Level.guardEntityTick(Level.java:486) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.level.ServerLevel.lambda$tick$3(ServerLevel.java:319) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.entity.EntityTickList.forEach(EntityTickList.java:54) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading}
+	at net.minecraft.server.level.ServerLevel.tick(ServerLevel.java:299) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:902) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:842) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.client.server.IntegratedServer.tickServer(IntegratedServer.java:84) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:685) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:261) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Thread.java:833) [?:?] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at net.minecraftforge.eventbus.api.Event.setCanceled(Event.java:95) ~[eventbus-5.0.7.jar%239!/:?] {}
+	at net.yeyixiao.block.procedures.wudi.onDeath(wudi.java:83) ~[%2380!/:?] {re:classloading}
+	at net.minecraftforge.eventbus.ASMEventHandler_6_wudi_onDeath_LivingSetAttackTargetEvent.invoke(.dynamic) ~[?:?] {}
+	at net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:85) ~[eventbus-5.0.7.jar%239!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:302) ~[eventbus-5.0.7.jar%239!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:283) ~[eventbus-5.0.7.jar%239!/:?] {}
+	at net.minecraftforge.common.ForgeHooks.onLivingSetAttackTarget(ForgeHooks.java:288) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2375%2381!/:?] {re:classloading}
+	at net.minecraft.world.entity.Mob.setTarget(Mob.java:209) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.entity.ai.goal.target.TargetGoal.canContinueToUse(TargetGoal.java:73) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading}
+	at net.minecraft.world.entity.ai.goal.WrappedGoal.canContinueToUse(WrappedGoal.java:27) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading}
+	at net.minecraft.world.entity.ai.goal.GoalSelector.tick(GoalSelector.java:84) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading}
+	at net.minecraft.world.entity.Mob.serverAiStep(Mob.java:695) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.entity.LivingEntity.aiStep(LivingEntity.java:2506) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.entity.Mob.aiStep(Mob.java:495) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.entity.LivingEntity.tick(LivingEntity.java:2253) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.entity.Mob.tick(Mob.java:307) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.entity.monster.Slime.tick(Slime.java:122) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading}
+	at net.minecraft.server.level.ServerLevel.tickNonPassenger(ServerLevel.java:652) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.Level.guardEntityTick(Level.java:486) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.level.ServerLevel.lambda$tick$3(ServerLevel.java:319) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.entity.EntityTickList.forEach(EntityTickList.java:54) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading}
+	at net.minecraft.server.level.ServerLevel.tick(ServerLevel.java:299) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+-- Entity being ticked --
+Details:
+	Entity Type: minecraft:slime (net.minecraft.world.entity.monster.Slime)
+	Entity ID: 11
+	Entity Name: 史莱姆
+	Entity's Exact location: -5.60, -60.00, 40.36
+	Entity's Block location: World: (-6,-60,40), Section: (at 10,4,8 in -1,-4,2; chunk contains blocks -16,-64,32 to -1,319,47), Region: (-1,0; contains chunks -32,0 to -1,31, blocks -512,-64,0 to -1,319,511)
+	Entity's Momentum: 0.00, -0.08, 0.00
+	Entity's Passengers: []
+	Entity's Vehicle: null
+Stacktrace:
+	at net.minecraft.world.level.Level.guardEntityTick(Level.java:486) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.level.ServerLevel.lambda$tick$3(ServerLevel.java:319) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.entity.EntityTickList.forEach(EntityTickList.java:54) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading}
+	at net.minecraft.server.level.ServerLevel.tick(ServerLevel.java:299) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:902) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:842) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.client.server.IntegratedServer.tickServer(IntegratedServer.java:84) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:685) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:261) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Thread.java:833) [?:?] {}
+
+
+-- Affected level --
+Details:
+	All players: 1 total; [ServerPlayer['Dev'/105, l='ServerLevel[新的世界]', x=-7.25, y=-60.00, z=31.37]]
+	Chunk stats: 2209
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (0,-60,0), Section: (at 0,4,0 in 0,-4,0; chunk contains blocks 0,-64,0 to 15,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
+	Level time: 32226 game time, 32226 day time
+	Level name: 新的世界
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: true
+	Level weather: Rain time: 10572 (now: false), thunder time: 3089 (now: false)
+	Known server brands: forge
+	Level was modded: true
+	Level storage version: 0x04ABD - Anvil
+Stacktrace:
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:902) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:842) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.client.server.IntegratedServer.tickServer(IntegratedServer.java:84) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:685) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:261) ~[forge-1.18.2-40.1.0_mapped_official_1.18.2.jar%2376!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Thread.java:833) [?:?] {}
+
+
+-- System Details --
+Details:
+	Minecraft Version: 1.18.2
+	Minecraft Version ID: 1.18.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 17.0.3, Amazon.com Inc.
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Amazon.com Inc.
+	Memory: 417392760 bytes (398 MiB) / 1742733312 bytes (1662 MiB) up to 2128609280 bytes (2030 MiB)
+	CPUs: 8
+	Processor Vendor: GenuineIntel
+	Processor Name: Intel(R) Core(TM) i7 CPU       Q 820  @ 1.73GHz
+	Identifier: Intel64 Family 6 Model 30 Stepping 5
+	Microarchitecture: Nehalem (Client) / Nehalem (Server)
+	Frequency (GHz): 1.73
+	Number of physical packages: 1
+	Number of physical CPUs: 4
+	Number of logical CPUs: 8
+	Graphics card #0 name: AMD Mobility Radeon HD 5800 Series
+	Graphics card #0 vendor: Advanced Micro Devices, Inc. (0x1002)
+	Graphics card #0 VRAM (MB): 1024.00
+	Graphics card #0 deviceId: 0x68a0
+	Graphics card #0 versionInfo: DriverVersion=15.200.1062.1004
+	Memory slot #0 capacity (MB): 4096.00
+	Memory slot #0 clockSpeed (GHz): 1.33
+	Memory slot #0 type: DDR3
+	Memory slot #1 capacity (MB): 4096.00
+	Memory slot #1 clockSpeed (GHz): 1.33
+	Memory slot #1 type: DDR3
+	Virtual memory max (MB): 15796.17
+	Virtual memory used (MB): 11884.23
+	Swap memory total (MB): 7680.00
+	Swap memory used (MB): 1696.29
+	JVM Flags: 1 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump
+	Server Running: true
+	Player Count: 1 / 8; [ServerPlayer['Dev'/105, l='ServerLevel[新的世界]', x=-7.25, y=-60.00, z=31.37]]
+	Data Packs: vanilla (incompatible), mod:forge (incompatible), mod:block
+	World Generation: Stable
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'forge'; Server brand changed to 'forge'
+	ModLauncher: 9.1.3+9.1.3+main.9b69c82a
+	ModLauncher launch target: forgeclientuserdev
+	ModLauncher naming: mcp
+	ModLauncher services: 
+		 mixin PLUGINSERVICE 
+		 eventbus PLUGINSERVICE 
+		 slf4jfixer PLUGINSERVICE 
+		 object_holder_definalize PLUGINSERVICE 
+		 runtime_enum_extender PLUGINSERVICE 
+		 capability_token_subclass PLUGINSERVICE 
+		 accesstransformer PLUGINSERVICE 
+		 runtimedistcleaner PLUGINSERVICE 
+		 mixin TRANSFORMATIONSERVICE 
+		 fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		minecraft@1.0
+		javafml@null
+	Mod List: 
+		forge-1.18.2-40.1.0_mapped_official_1.18.2.jar    |Minecraft                     |minecraft                     |1.18.2              |DONE      |Manifest: a1:d4:5e:04:4f:d3:d6:e0:7b:37:97:cf:77:b0:de:ad:4a:47:ce:8c:96:49:5f:0a:cf:8c:ae:b2:6d:4b:8a:3f
+		                                                  |Forge                         |forge                         |40.1.0              |DONE      |Manifest: NOSIGNATURE
+		main                                              |管理者之剑                         |block                         |1.0.0               |DONE      |Manifest: NOSIGNATURE
+	Crash Report UUID: cd6c4f0c-665c-4f73-b482-37a98050e18a
+	FML: 40.1
+	Forge: net.minecraftforge:40.1.0

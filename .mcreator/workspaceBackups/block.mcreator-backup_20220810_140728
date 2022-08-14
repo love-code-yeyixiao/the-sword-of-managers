@@ -1,0 +1,63 @@
+{
+  "mod_elements": [
+    {
+      "name": "ShengCaoDeFangKuai",
+      "type": "block",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sheng_cao_de_fang_kuai"
+    },
+    {
+      "name": "ChaoChangDeJian",
+      "type": "tool",
+      "sortid": 2,
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "chao_chang_de_jian"
+    },
+    {
+      "name": "Kill",
+      "type": "gamerule",
+      "sortid": 3,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kill",
+      "metadata": {
+        "type": "logic"
+      }
+    }
+  ],
+  "variable_elements": [],
+  "sound_elements": [],
+  "language_map": {
+    "en_us": {
+      "gamerule.kill.description": "强制击杀功能开关。",
+      "block.block.sheng_cao_de_fang_kuai": "生草的方块",
+      "item.block.chao_chang_de_jian": "超长的剑",
+      "gamerule.kill": "kill"
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": []
+  },
+  "workspaceSettings": {
+    "modid": "block",
+    "modName": "测试方块",
+    "version": "1.0.0",
+    "author": "Administrator, MCreator",
+    "websiteURL": "https://mcreator.net",
+    "license": "Academic Free License v3.0",
+    "disableForgeVersionCheck": true,
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "forge-1.18.2",
+    "modElementsPackage": "net.yeyixiao.block",
+    "lockBaseModFiles": false
+  },
+  "mcreatorVersion": 202200231711
+}

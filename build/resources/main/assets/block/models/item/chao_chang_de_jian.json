@@ -1,0 +1,9 @@
+{
+  "parent": "block:custom/model",
+  "textures": {
+    "0": "block:blocks/textur",
+    "1": "block:blocks/texture1",
+    "2": "block:blocks/texture2",
+    "particle": "block:items/texture"
+  }
+}
