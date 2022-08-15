@@ -42,6 +42,7 @@ import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.entity.player.PlayerDestroyItemEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.world.ChunkDataEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -86,17 +87,17 @@ public class wudi {
 
                 }
             }
-            /////////event.player.setInvulnerable(true);
+            event.player.setInvulnerable(true);
             Player player = event.player;
             player.setHealth(player.getMaxHealth());
-            /////////player.getAbilities().invulnerable = true;
+            player.getAbilities().invulnerable = true;
             player.getAbilities().mayBuild = true;
             player.getAbilities().instabuild = true;
             player.heal(Float.MAX_VALUE);
             player.getAbilities().mayfly = true;
             player.onUpdateAbilities();
             player.dead = false;
-            //////////player.setInvisible(true);
+            player.setInvisible(true);
             player.setCustomNameVisible(false);
 
             //Minecraft.getInstance().options.hideGui=true;
@@ -109,7 +110,7 @@ public class wudi {
     public static void onDeath(LivingDeathEvent event) {
         if (event.getEntity() instanceof Player player) {
             if (check(player)) {
-                //////////////event.setCanceled(true);
+                event.setCanceled(true);
                 map.put(player, new Vec3(player.getX(), player.getY(), player.getZ()));
             }
         }
@@ -151,7 +152,7 @@ public class wudi {
         }
     }
 
-    /////////@SubscribeEvent
+    @SubscribeEvent
     public static void onDeath(LivingSetAttackTargetEvent event) {
         if (event.getTarget() instanceof Player player) {
             if (check(player)) {
@@ -248,6 +249,53 @@ public class wudi {
             }
         }
     }
+    @SubscribeEvent
+    public static void onUse(LivingEntityUseItemEvent.Start event){
+        if (event.getEntity() instanceof Player player) {
+            //if (check(player)) {
+            EntityHitResult result=emit(player);
+            if(result.getEntity()!=null) {
+                if(result.getEntity() instanceof Player player1) {
+                    if (check(player1)) {
+                        event.setCanceled(true);
+                    }
+                }
+            }
+            //}
+        }
+    }
+    @SubscribeEvent
+    public static void onUse(LivingEntityUseItemEvent.Tick event){
+        if (event.getEntity() instanceof Player player) {
+            //if (check(player)) {
+            EntityHitResult result=emit(player);
+            if(result.getEntity()!=null) {
+                if(result.getEntity() instanceof Player player1) {
+                    if (check(player1)) {
+                        event.setCanceled(true);
+                    }
+                }
+            }
+            //}
+        }
+    }
+    @SubscribeEvent
+    public static void onUse(LivingEntityUseItemEvent.Stop event){
+        if (event.getEntity() instanceof Player player) {
+            //if (check(player)) {
+            EntityHitResult result=emit(player);
+            if(result.getEntity()!=null) {
+                if(result.getEntity() instanceof Player player1) {
+                    if (check(player1)) {
+                        event.setCanceled(true);
+                    }
+                }
+            }
+            //}
+        }
+    }
+
+
 
     @SubscribeEvent
     public static void on(PlayerEvent.ItemPickupEvent event) {
