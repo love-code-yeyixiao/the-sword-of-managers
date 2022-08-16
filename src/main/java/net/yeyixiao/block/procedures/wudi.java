@@ -387,16 +387,19 @@ public class wudi {
     }
 
     @SubscribeEvent
+
     public static void onClick(InputEvent.RawMouseEvent event) {
         //if (event.getButton() == 0 || event.getButton() == 1 ){
         if (Minecraft.getInstance().player != null && Minecraft.getInstance().player.level != null) {
             LocalPlayer player = Minecraft.getInstance().player;
-            if (emit(player) != null) {
-                EntityHitResult result = emit(player);
-                if (result.getEntity() instanceof Player player1) {
-                    if (player1.getItemInHand(InteractionHand.MAIN_HAND).getItem() instanceof ChaoChangDeJianItem || player1.getItemInHand(InteractionHand.OFF_HAND).getItem() instanceof ChaoChangDeJianItem) {
-                        if (result.getEntity() != null) {
-                            event.setCanceled(true);
+            if(player!=null) {
+                if (emit(player) != null) {
+                    EntityHitResult result = emit(player);
+                    if (result.getEntity() instanceof Player player1) {
+                        if (player1.getItemInHand(InteractionHand.MAIN_HAND).getItem() instanceof ChaoChangDeJianItem || player1.getItemInHand(InteractionHand.OFF_HAND).getItem() instanceof ChaoChangDeJianItem) {
+                            if (result.getEntity() != null) {
+                                event.setCanceled(true);
+                            }
                         }
                     }
                 }

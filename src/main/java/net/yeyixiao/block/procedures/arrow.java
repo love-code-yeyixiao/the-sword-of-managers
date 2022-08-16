@@ -97,7 +97,7 @@ public class arrow {
                     }
                     else if (entityiterator instanceof Mob projectile) {
                         if (!world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(3f), e -> true).contains(entityiterator)) {
-                            if (((Monster) entityiterator).getTarget() == player) {
+                            if (((Mob) entityiterator).getTarget() == player) {
                                 projectile.setDeltaMovement(new Vec3(-(projectile.getDeltaMovement().x + 0.7), -(projectile.getDeltaMovement().y), -(projectile.getDeltaMovement().z + 0.7)));
                             }
                         }
